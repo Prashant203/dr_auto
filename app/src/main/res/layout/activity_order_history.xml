@@ -1,0 +1,140 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_left_arrow_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.7"
+                android:fontFamily="@font/segoebold"
+                android:gravity="center_horizontal"
+                android:text="Order History"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_19sdp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/action">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="@dimen/_5sdp"
+                    android:clickable="true"
+                    card_view:cardCornerRadius="@dimen/_10sdp"
+                    card_view:cardElevation="@dimen/_10sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_2sdp">
+
+                        <TextView
+                            android:id="@+id/grName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:alpha="0.7"
+                            android:fontFamily="@font/segoebold"
+                            android:paddingLeft="@dimen/_10sdp"
+                            android:text="@string/saw_automobiles"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_16sdp" />
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/grName"
+                            android:layout_alignParentStart="true"
+                            android:fontFamily="@font/segoe"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/_3_299"
+                            android:textSize="@dimen/_14sdp" />
+
+                        <TextView
+                            android:id="@+id/type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/grName"
+                            android:layout_marginLeft="@dimen/_65sdp"
+                            android:fontFamily="@font/segoe"
+                            android:gravity="bottom"
+                            android:paddingLeft="@dimen/_2sdp"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:text="@string/car_service"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/duuration"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/price"
+                            android:fontFamily="@font/segoe"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/every_5000_km_3_months"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/duuration"
+                            android:fontFamily="@font/segoe"
+                            android:paddingLeft="@dimen/_15sdp"
+                            android:text="@string/takes_4_hrs"
+                            android:textSize="@dimen/_11sdp" />
+
+                        <Button
+                            android:id="@+id/addB"
+                            style="@style/button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_below="@id/grName"
+                            android:layout_marginLeft="@dimen/_220sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="@dimen/_5sdp"
+                            android:text="Repeat"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

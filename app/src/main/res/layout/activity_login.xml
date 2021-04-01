@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".Login">
+
+        <ImageView
+            android:id="@+id/sticker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_group_699" />
+
+        <TextView
+            android:id="@+id/sticker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/_1sdp"
+            android:text="Please Verify Yourself!"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_18sdp" />
+
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/ic_rectangle_textbox"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="@dimen/_11sdp"
+            android:hint="@string/your_name"
+            android:inputType="textPersonName"
+            android:paddingStart="@dimen/_17sdp"
+            android:paddingBottom="@dimen/_4sdp" />
+
+
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/ic_rectangle_textbox"
+            android:drawableLeft="@drawable/ic_email"
+            android:drawablePadding="@dimen/_8sdp"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_4sdp" />
+
+
+        <EditText
+                android:id="@+id/mobilenumber"
+                android:layout_width="@dimen/_260sdp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_rectangle_textbox"
+                android:drawableStart="@drawable/ic_phone_call"
+                android:hint="@string/mobile_number"
+                android:inputType="phone"
+                android:maxEms="10"
+                android:textSize="@dimen/_14sdp"
+                android:digits="0123456789"
+                android:paddingStart="@dimen/_17sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:drawablePadding="@dimen/_11sdp"
+                tools:ignore="RtlSymmetry" />
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="bottom|center_horizontal">
+
+            <Button
+                android:id="@+id/buttonVerifyPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_group_704"
+                android:fontFamily="@font/segoe"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="@string/generate_otp"
+                android:paddingTop="@dimen/_28sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+        </FrameLayout>
+    </LinearLayout>
+</layout>

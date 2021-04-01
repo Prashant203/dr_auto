@@ -1,0 +1,158 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".setLocation">
+
+        <ImageView
+            android:id="@+id/profileView"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/_145sdp"
+            android:background="@drawable/oilhorizontal"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_group_652" />
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:src="@drawable/ic_backbuttonwhite" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/profile_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/saw_automobiles"
+                android:textSize="@dimen/_20sdp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Location"
+                    style="@style/location_text"
+                    android:layout_width="@dimen/_210sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:paddingStart="@dimen/_2sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@string/location"
+                    android:textSize="@dimen/_13sdp"/>
+                <RatingBar
+                    android:id="@+id/ratings"
+                    style="@android:attr/ratingBarStyleSmall"
+                    android:theme="@style/RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Location"
+                    android:scaleX=".5"
+                    android:scaleY=".5"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp"
+                    android:isIndicator="true"
+                    android:max="5"
+                    android:rating="3.7"
+                    android:progressTint="@color/white"
+                    android:progressBackgroundTint="@color/gray"/>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileView"
+            android:layout_marginLeft="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/Locationmarker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:src="@drawable/ic_group_670" />
+            
+            <TextView
+                style="@style/location_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:padding="@dimen/_3sdp"
+                android:textColor="@color/black"
+                android:alpha="0.7"
+                android:text="@string/location" 
+                android:textSize="@dimen/_14sdp"/>
+            <EditText
+                android:id="@+id/address1"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@id/Locationmarker"
+                android:hint="@string/house_office_no"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/segoe"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="1"/>
+            <EditText
+                android:id="@+id/address2"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address1"
+                android:hint="@string/landmark"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/segoe"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="1"/>
+            <EditText
+                android:id="@+id/address3"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address2"
+                android:hint="@string/nearby"
+                android:textColor="@color/gray"
+                android:fontFamily="@font/segoe"
+                android:textSize="@dimen/_12sdp"
+                android:maxLines="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address3"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_12sdp">
+            <Button
+                android:id="@+id/continueButton"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:text="@string/asa"
+                android:background="@drawable/ic_rectangle_72"
+                android:textSize="@dimen/_17sdp"
+                android:fontFamily="@font/segoe"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:gravity="center_horizontal"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

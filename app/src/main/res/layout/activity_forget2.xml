@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ForgetPassword">
+
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_left_arrow_1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backButton"
+            android:layout_centerInParent="true">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/_160sdp"
+                        android:layout_height="@dimen/_160sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/logo" />
+
+
+                    <EditText
+                        android:id="@+id/mobileNo"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/ic_rectangle_textbox"
+                        android:drawableStart="@drawable/ic_otp"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:hint="OTP"
+                        android:inputType="number"
+                        android:paddingStart="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_6sdp" />
+
+                    <EditText
+                        android:id="@+id/Password"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:background="@drawable/ic_rectangle_textbox"
+                        android:drawableStart="@drawable/ic_lock"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:paddingStart="@dimen/_17sdp"
+                        android:paddingBottom="@dimen/_6sdp" />
+
+
+                    <EditText
+                        android:id="@+id/RePassword"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:background="@drawable/ic_rectangle_textbox"
+                        android:drawableStart="@drawable/ic_lock"
+                        android:drawablePadding="@dimen/_13sdp"
+                        android:hint="@string/re_type_password"
+                        android:inputType="textPassword"
+                        android:paddingStart="@dimen/_17sdp"
+                        android:paddingBottom="@dimen/_6sdp" />
+
+
+                    <Button
+                        android:id="@+id/ResetButton"
+                        style="@style/button"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:text="Reset"
+                        android:textSize="@dimen/_18sdp" />
+                </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>
