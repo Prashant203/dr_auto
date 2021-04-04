@@ -89,9 +89,10 @@
                 android:layout_gravity="center"
                 android:background="@drawable/ic_group_704"
                 android:fontFamily="@font/segoe"
+                android:onClick="sendMessage"
+                android:paddingTop="@dimen/_28sdp"
                 android:paddingBottom="@dimen/_5sdp"
                 android:text="@string/generate_otp"
-                android:paddingTop="@dimen/_28sdp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
