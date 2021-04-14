@@ -1,4 +1,4 @@
-package com.example.dr_auto;
+package com.example.dr_auto.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.dr_auto.databinding.ActivityProfileBinding;
+import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivitySplash2Binding;
 
 public class splash2 extends AppCompatActivity {

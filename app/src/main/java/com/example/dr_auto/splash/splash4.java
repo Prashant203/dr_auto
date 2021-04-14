@@ -1,22 +1,24 @@
-package com.example.dr_auto;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+package com.example.dr_auto.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.dr_auto.databinding.ActivitySpalsh3Binding;
-import com.example.dr_auto.databinding.ActivitySplash2Binding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
-public class spalsh3 extends AppCompatActivity {
+import com.example.dr_auto.Login.Login;
+import com.example.dr_auto.R;
+import com.example.dr_auto.databinding.ActivitySplash4Binding;
 
-    ActivitySpalsh3Binding binding;
+public class splash4 extends AppCompatActivity {
+
+    ActivitySplash4Binding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_spalsh3);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_splash4);
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +28,7 @@ public class spalsh3 extends AppCompatActivity {
         binding.submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(spalsh3.this, splash4.class));
+                startActivity(new Intent(splash4.this, Login.class));
             }
         });
     }

@@ -5,7 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OtpPage">
+        tools:context=".Login.OtpPage">
 
         <LinearLayout
             android:id="@+id/layout"
@@ -14,8 +14,7 @@
             android:layout_marginTop="@dimen/_50sdp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            tools:context=".OtpPage">
-
+            tools:context=".Login.OtpPage">
 
 
             <TextView

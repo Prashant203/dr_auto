@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -27,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
          binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        Intent intent = getIntent();
-        String str = intent.getStringExtra("Name");
-        binding.name.setText(str);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 

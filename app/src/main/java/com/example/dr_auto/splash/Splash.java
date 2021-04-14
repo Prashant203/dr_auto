@@ -1,4 +1,4 @@
-package com.example.dr_auto;
+package com.example.dr_auto.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dr_auto.MainActivity;
+import com.example.dr_auto.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

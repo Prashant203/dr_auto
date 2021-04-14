@@ -1,4 +1,4 @@
-package com.example.dr_auto;
+package com.example.dr_auto.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,25 +7,30 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.dr_auto.databinding.ActivityForget2Binding;
+import com.example.dr_auto.R;
+import com.example.dr_auto.databinding.ActivityForgetPasswordBinding;
 
-public class Forget2 extends AppCompatActivity {
-    private ActivityForget2Binding binding;
+public class ForgetPassword extends AppCompatActivity {
+
+    private ActivityForgetPasswordBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_forget2);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_forget_password);
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               onBackPressed();
+                onBackPressed();
             }
         });
         binding.ResetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Forget2.this, Login.class));
+                startActivity(new Intent(ForgetPassword.this,Forget2.class));
             }
         });
+
     }
 }

@@ -1,13 +1,11 @@
-package com.example.dr_auto;
+package com.example.dr_auto.Login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.example.dr_auto.GenericTextWatcher;
+import com.example.dr_auto.MainActivity;
+import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityOtpPageBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
