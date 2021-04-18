@@ -8,6 +8,7 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dr_auto.Login.Login;
 import com.example.dr_auto.MainActivity;
 import com.example.dr_auto.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,8 +57,8 @@ public class Splash extends AppCompatActivity {
             new Handler().postDelayed(new Runnable(){
                 @Override
                 public void run() {
-                    Intent intent=new Intent(Splash.this, splash2.class);
-                    Splash.this.startActivity(intent);
+                    startActivity(new Intent(Splash.this, Login.class));
+
                     finish();
 
                 }

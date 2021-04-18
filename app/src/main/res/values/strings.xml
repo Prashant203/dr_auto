@@ -41,7 +41,7 @@
     <string name="cleaning">Cleaning</string>
     <string name="batteries">Batteries</string>
     <string name="insurance">Insurance</string>
-    <string name="custom">Custom</string>
+    <string name="custom">AAA</string>
     <string name="username">Username</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="we_just_need_your_registered_email_address_to">We just need your registered Email Address to</string>
@@ -74,5 +74,6 @@
     <string name="generate_otp">Send OTP</string>
     <string name="_8549301021">8549301021</string>
     <string name="partnerKey">4LISe19e198944831404092f20de2c5a3eeb5</string>
+    <string name="my_profile">My Profile</string>
 
 </resources>

@@ -18,22 +18,23 @@
 
 
         <ImageView
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:id="@+id/settings"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_6sdp"
-            android:src="@drawable/ic_component_9___8" />
+            android:src="@drawable/ic_adjustment__2_" />
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/profileBar"
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="@dimen/_125sdp"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <!--<de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="@dimen/_70sdp"
@@ -42,47 +43,45 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:src="@drawable/l"
                 app:civ_border_width="2dp"
-                app:civ_border_color="@color/white"/>
+                app:civ_border_color="@color/white"/>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_12sdp"
-                android:orientation="vertical">
+
 
                 <TextView
                     android:id="@+id/name"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_centerInParent="true"
                     android:textAllCaps="true"
                     android:textSize="@dimen/_15sdp"
                     android:textColor="@color/white"
                     android:text="@string/profileName"/>
 
-                <LinearLayout
-                    android:layout_width="@dimen/_150sdp"
-                    android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_centerInParent="true">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:src="@drawable/ic_location_pin" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:src="@drawable/ic_location_pin" />
 
 
-                    <TextView
-                        style="@style/location_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/_2sdp"
-                        android:padding="@dimen/_3sdp"
-                        android:text="@string/location" />
-                </LinearLayout>
+                <TextView
+                    style="@style/location_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@string/location" />
             </LinearLayout>
+        </RelativeLayout>
 
-        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/serachbar"
@@ -270,14 +269,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:paddingTop="@dimen/_18sdp"
-                            android:text="@string/custom"
+                            android:paddingTop="25dp"
+                            android:text="Lights"
                             android:textColor="#525159"
                             android:textSize="@dimen/_11sdp"
-                            card_view:drawableTopCompat="@drawable/ic_customer_support" />
+                            card_view:drawableTopCompat="@drawable/ic_headlight" />
 
                     </androidx.cardview.widget.CardView>
-
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card_view9"
                         style="@style/ServiceButton"
@@ -287,11 +285,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:paddingTop="25dp"
-                            android:text="Lights"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:text="@string/custom"
                             android:textColor="#525159"
                             android:textSize="@dimen/_11sdp"
-                            card_view:drawableTopCompat="@drawable/ic_headlight" />
+                            card_view:drawableTopCompat="@drawable/ic_tow_truck" />
 
                     </androidx.cardview.widget.CardView>
 

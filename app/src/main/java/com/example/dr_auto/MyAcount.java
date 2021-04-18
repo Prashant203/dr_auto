@@ -28,9 +28,10 @@ public class MyAcount extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
 
+
         binding.backButton.setOnClickListener(v -> onBackPressed());
         binding.myProfile.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, Profile.class)));
-        binding.cars.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, CarInventory.class)));
+        // binding.cars.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, CarInventory.class)));
         binding.History.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, OrderHistory.class)));
 
         binding.Share.setOnClickListener(v -> {

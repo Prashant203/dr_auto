@@ -10,7 +10,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal">
 
             <LinearLayout
@@ -64,7 +64,7 @@
                     <Button
                         android:id="@+id/buttonVerifyPhone"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="@drawable/ic_group_704"
                         android:fontFamily="@font/segoe"
@@ -84,6 +84,20 @@
                         android:visibility="gone" />
 
                 </FrameLayout>
+
+
+                <TextView
+                    android:id="@+id/CreateNew"
+                    style="@style/normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_50sdp"
+                    android:alpha="0.8"
+                    android:text="Use a different Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
         </ScrollView>

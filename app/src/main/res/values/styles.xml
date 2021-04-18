@@ -13,7 +13,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">#CC0000</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">#F6F0F0</item>
     </style>
     <!--E4E4E4-->
     <style name="profile" parent="Theme.AppCompat.Light.NoActionBar">

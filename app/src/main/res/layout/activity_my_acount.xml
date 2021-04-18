@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
@@ -17,7 +17,7 @@
             <ImageView
 
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_240sdp"
+                android:layout_height="@dimen/_180sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_profilegrad" />
 
@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/_80sdp"
                     android:gravity="center_horizontal">
 
 
@@ -42,6 +42,7 @@
 
 
                     <LinearLayout
+                        android:id="@+id/l1"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
@@ -65,36 +66,37 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/cars"
-                        android:layout_width="@dimen/_250sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_marginLeft="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_100sdp"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:orientation="horizontal">
+                    <!--  <LinearLayout
+                          android:id="@+id/cars"
+                          android:layout_width="@dimen/_250sdp"
+                          android:layout_height="@dimen/_40sdp"
+                          android:layout_marginLeft="@dimen/_15sdp"
+                          android:layout_marginTop="@dimen/_100sdp"
+                          android:clickable="true"
+                          android:focusable="true"
+                          android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="@dimen/_240sdp"
-                            android:layout_height="@dimen/_48sdp"
-                            android:layout_gravity="center_horizontal"
-                            android:drawablePadding="@dimen/_15sdp"
-                            android:fontFamily="@font/segoe"
-                            android:gravity="bottom"
-                            android:padding="@dimen/_15sdp"
-                            android:text="My Cars"
-                            android:textSize="@dimen/_15sdp"
-                            card_view:drawableLeftCompat="@drawable/ic_suv" />
+                          <TextView
+                              android:layout_width="@dimen/_240sdp"
+                              android:layout_height="@dimen/_48sdp"
+                              android:layout_gravity="center_horizontal"
+                              android:drawablePadding="@dimen/_15sdp"
+                              android:fontFamily="@font/segoe"
+                              android:gravity="bottom"
+                              android:padding="@dimen/_15sdp"
+                              android:text="My Cars"
+                              android:textSize="@dimen/_15sdp"
+                              card_view:drawableLeftCompat="@drawable/ic_suv" />
 
-                    </LinearLayout>
+                      </LinearLayout>-->
 
                     <LinearLayout
                         android:id="@+id/History"
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_160sdp"
+                        android:layout_below="@id/l1"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:clickable="true"
                         android:focusable="true"
                         android:orientation="horizontal">
@@ -118,8 +120,9 @@
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_224sdp"
+                        android:layout_below="@id/History"
                         android:clickable="true"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:focusable="true"
                         android:orientation="horizontal">
 
@@ -142,7 +145,8 @@
                         android:layout_width="@dimen/_250sdp"
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_290sdp"
+                        android:layout_below="@id/Share"
+                        android:layout_marginTop="@dimen/_20sdp"
                         android:clickable="true"
                         android:focusable="true"
                         android:orientation="horizontal">
@@ -163,35 +167,40 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_240sdp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_10sdp">
+                <!-- <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="@dimen/_240sdp"
+                     android:layout_gravity="center_horizontal"
+                     android:layout_marginTop="@dimen/_10sdp">
 
-                    <RelativeLayout
-                        android:id="@+id/shape_layout"
-                        android:layout_width="@dimen/_110sdp"
-                        android:layout_height="@dimen/_110sdp"
-                        android:layout_marginStart="@dimen/_100sdp"
-                        android:layout_marginTop="@dimen/_40sdp"
-                        android:background="@drawable/img">
+                     <RelativeLayout
+                         android:id="@+id/shape_layout"
+                         android:layout_width="@dimen/_110sdp"
+                         android:layout_height="@dimen/_110sdp"
+                         android:layout_marginStart="@dimen/_100sdp"
+                         android:layout_marginTop="@dimen/_40sdp"
+                         android:background="@drawable/img">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/profile_image"
-                            android:layout_width="@dimen/_110sdp"
-                            android:layout_height="@dimen/_110sdp"
-                            android:src="@drawable/l"
-                            app:civ_border_width="2dp"
-                            app:civ_border_color="@color/white"/>
-                    </RelativeLayout>
-                </LinearLayout>
+                         <de.hdodenhof.circleimageview.CircleImageView
+                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                             android:id="@+id/profile_image"
+                             android:layout_width="@dimen/_110sdp"
+                             android:layout_height="@dimen/_110sdp"
+                             android:src="@drawable/l"
+                             app:civ_border_width="2dp"
+                             app:civ_border_color="@color/white"/>
+                     </RelativeLayout>
+                 </LinearLayout>-->
 
 
             </RelativeLayout>
 
-
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_group_662" />
         </RelativeLayout>
 
         <ImageView
@@ -212,13 +221,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_18sdp" />
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_alignParentBottom="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_group_662" />
-    </RelativeLayout>
+
+    </FrameLayout>
 
 
 </layout>

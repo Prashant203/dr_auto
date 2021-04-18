@@ -16,7 +16,7 @@
             <ImageView
                 android:id="@+id/bg"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_180sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_profilegrad1" />
 
@@ -28,45 +28,46 @@
                 android:src="@drawable/ic_backbuttonwhite" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_centerInParent="true"
                 android:fontFamily="@font/segoebold"
                 android:gravity="center"
-                android:text="My Profile"
+                android:layout_margin="@dimen/_12sdp"
+                android:text="@string/my_profile"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_19sdp" />
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/backButton"
-                android:layout_centerHorizontal="true">
+            <!-- <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/backButton"
+                 android:layout_centerHorizontal="true">
 
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                 <FrameLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/profile_image"
-                        android:layout_width="@dimen/_110sdp"
-                        android:layout_height="@dimen/_110sdp"
-                        android:src="@drawable/l"
-                        app:civ_border_width="2dp"
-                        app:civ_border_color="@color/white"/>
+                     <de.hdodenhof.circleimageview.CircleImageView
+                         xmlns:app="http://schemas.android.com/apk/res-auto"
+                         android:id="@+id/profile_image"
+                         android:layout_width="@dimen/_110sdp"
+                         android:layout_height="@dimen/_110sdp"
+                         android:src="@drawable/l"
+                         app:civ_border_width="2dp"
+                         app:civ_border_color="@color/white"/>
 
-                    <ImageView
-                        android:id="@+id/edit"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_gravity="end|bottom"
-                        android:src="@drawable/ic_edit"
-                        />
-                </FrameLayout>
-            </LinearLayout>
+                     <ImageView
+                         android:id="@+id/edit"
+                         android:layout_width="@dimen/_30sdp"
+                         android:layout_height="@dimen/_30sdp"
+                         android:layout_gravity="end|bottom"
+                         android:src="@drawable/ic_edit"
+                         />
+                 </FrameLayout>
+             </LinearLayout>-->
 
 
         </RelativeLayout>
@@ -78,12 +79,13 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
@@ -167,8 +169,7 @@
                         android:textSize="@dimen/_12sdp" />
 
 
-
-                    <TextView
+                    <!--<TextView
                         android:id="@+id/Gender"
                         style="@style/location_text"
                         android:layout_width="match_parent"
@@ -182,38 +183,38 @@
                         android:text="Gender"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp" />
+-->
+                    <!--  <RadioGroup
+                          android:id="@+id/radioGroup1"
+                          android:layout_width="wrap_content"
+                          android:layout_height="@dimen/_30sdp"
+                          android:layout_below="@+id/Gender"
+                          android:layout_marginLeft="@dimen/_20sdp"
+                          android:layout_marginTop="@dimen/_10sdp"
+                          android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:id="@+id/radioGroup1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_below="@+id/Gender"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radioButton1"
-                            style="@style/chekbox"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:checked="true"
-                            android:text="Male" />
-
-
-                        <RadioButton
-                            style="@style/chekbox"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_below="@+id/radioGroup1"
-                            android:layout_alignLeft="@+id/radioGroup1"
-                            android:text="Female" />
+                          <RadioButton
+                              android:id="@+id/radioButton1"
+                              style="@style/chekbox"
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:checked="true"
+                              android:text="Male" />
 
 
-                    </RadioGroup>
+                          <RadioButton
+                              style="@style/chekbox"
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_below="@+id/radioGroup1"
+                              android:layout_alignLeft="@+id/radioGroup1"
+                              android:text="Female" />
 
 
-                    <LinearLayout
+                      </RadioGroup>
+  -->
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="@dimen/_20sdp"
@@ -223,6 +224,7 @@
                             android:id="@+id/saveButton"
                             android:layout_width="@dimen/_150sdp"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@drawable/ic_group_704"
                             android:fontFamily="@font/segoe"
@@ -232,7 +234,7 @@
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_17sdp" />
-                    </LinearLayout>
+                    </RelativeLayout>
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>

@@ -1,10 +1,8 @@
 package com.example.dr_auto;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -41,12 +39,12 @@ public class Profile extends AppCompatActivity {
         binding.mobileNo.setText("+91 " + getIntent().getStringExtra("Mobile"));
 
         // when iv is clicked
-        binding.profileImage.setOnClickListener(new View.OnClickListener() {
+        /*binding.profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectImage();
             }
-        });
+        });*/
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +55,7 @@ public class Profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(Profile.this, MyAcount.class));
+
             }
         });
 
@@ -87,7 +85,7 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    @Override
+  /*  @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -97,5 +95,5 @@ public class Profile extends AppCompatActivity {
                 binding.profileImage.setImageURI(selectedImageUri);
             }
         }
-    }
+    }*/
 }

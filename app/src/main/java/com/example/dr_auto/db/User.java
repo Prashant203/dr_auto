@@ -1,27 +1,14 @@
 package com.example.dr_auto.db;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 public class User {
 
 
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("email")
-    @Expose
-    private String email;
-    @SerializedName("phone")
-    @Expose
-    private String phone;
+    String name, email, phone;
 
     public User() {
-
     }
 
     public User(String name, String email, String phone) {
-
         this.name = name;
         this.email = email;
         this.phone = phone;

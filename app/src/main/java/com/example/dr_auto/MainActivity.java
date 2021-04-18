@@ -2,7 +2,6 @@ package com.example.dr_auto;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -12,6 +11,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.dr_auto.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,39 +21,28 @@ public class MainActivity extends AppCompatActivity {
     private int dotscount;
     private ImageView[] dots;
     ActivityMainBinding binding;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager = findViewById(R.id.viewPager);
 
-        sliderDotspanel = (LinearLayout) findViewById(R.id.SliderDots);
+        sliderDotspanel = findViewById(R.id.SliderDots);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
 
         viewPager.setAdapter(viewPagerAdapter);
 
-        binding.profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MyAcount.class));
-            }
-        });
-        binding.addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CarInventory.class));
-            }
-        });
-        binding.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ServiceList.class));
-            }
-        });
+        binding.settings.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MyAcount.class)));
+        // binding.addButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CarInventory.class)));
+        binding.cardView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ServiceList.class)));
 
 
         dotscount = viewPagerAdapter.getCount();

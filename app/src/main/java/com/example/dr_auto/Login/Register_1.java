@@ -29,14 +29,18 @@ public class Register_1 extends AppCompatActivity {
 
     ActivityRegister1Binding binding;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register_1);
 
 
-        binding.buttonVerifyPhone.setOnClickListener(v -> loginUser());
+        binding.buttonVerifyPhone.setOnClickListener(v ->
+                loginUser());
 
+
+        binding.CreateNew.setOnClickListener(v -> startActivity(new Intent(Register_1.this, Login.class)));
     }
 
     private void loginUser() {
