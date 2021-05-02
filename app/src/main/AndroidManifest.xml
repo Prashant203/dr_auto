@@ -15,11 +15,12 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission
         android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
-
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -27,8 +28,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:screenOrientation="portrait"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".Garages" />
         <activity android:name=".splash.splash4" />
         <activity android:name=".splash.spalsh3" />
         <activity android:name=".Login.OtpPage" />
@@ -97,9 +100,7 @@
             android:name=".Login.Login"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:noHistory="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".splash.Splash"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -128,8 +129,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/dashboard" />
-
-
     </application>
 
 </manifest>

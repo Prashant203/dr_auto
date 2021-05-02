@@ -2,6 +2,7 @@ package com.example.dr_auto;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,12 @@ public class MyAcount extends AppCompatActivity {
         // binding.cars.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, CarInventory.class)));
         binding.History.setOnClickListener(v -> startActivity(new Intent(MyAcount.this, OrderHistory.class)));
 
+        binding.cars.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyAcount.this, Garages.class));
+            }
+        });
         binding.Share.setOnClickListener(v -> {
 
             Intent sharingIntent = new Intent(Intent.ACTION_SEND);

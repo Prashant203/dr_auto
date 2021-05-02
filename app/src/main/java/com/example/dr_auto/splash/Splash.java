@@ -42,6 +42,7 @@ public class Splash extends AppCompatActivity {
         super.onStart();
 
         firebaseUser = firebaseAuth.getCurrentUser();
+
         if (firebaseUser != null){
             new Handler().postDelayed(new Runnable(){
                 @Override

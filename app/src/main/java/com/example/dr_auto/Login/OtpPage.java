@@ -17,11 +17,13 @@ import com.example.dr_auto.GenericTextWatcher;
 import com.example.dr_auto.MainActivity;
 import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityOtpPageBinding;
+import com.example.dr_auto.db.User;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +31,8 @@ import java.util.concurrent.TimeUnit;
 public class OtpPage extends AppCompatActivity {
     ActivityOtpPageBinding binding;
     DatabaseReference databaseReference;
+    FirebaseDatabase fireBaseDatabase;
+    User userInfo;
 
     EditText otp_textbox_one, otp_textbox_two, otp_textbox_three, otp_textbox_four, otp_textbox_five, otp_textbox_six;
     private String varificationId;
@@ -39,12 +43,15 @@ public class OtpPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp_page);
         final TextView textView = findViewById(R.id.resend);
+        fireBaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = fireBaseDatabase.getReference("Users");
+
 
         new CountDownTimer(30000, 1000) {
 
             @SuppressLint("SetTextI18n")
             public void onTick(long millisUntilFinished) {
-                textView.setText("00:"+millisUntilFinished / 1000);
+                textView.setText("00:" + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
@@ -53,7 +60,13 @@ public class OtpPage extends AppCompatActivity {
         }.start();
 
 
-        binding.mob.setText("+91 "+getIntent().getStringExtra("Mobile"));
+        binding.mob.setText("+91 " + getIntent().getStringExtra("Mobile"));
+        binding.PhoneText.setText("+91 " + getIntent().getStringExtra("Mobile"));
+        binding.NameTExt.setText(getIntent().getStringExtra("Name"));
+        binding.emailTExt.setText(getIntent().getStringExtra("Email"));
+
+        System.out.println(binding.PhoneText.getText() + " / " + binding.emailTExt.getText() + " / " + binding.NameTExt.getText());
+
 
         otp_textbox_one = findViewById(R.id.etDigit1);
         otp_textbox_two = findViewById(R.id.etDigit2);
@@ -70,9 +83,6 @@ public class OtpPage extends AppCompatActivity {
         otp_textbox_four.addTextChangedListener(new GenericTextWatcher(otp_textbox_four, edit));
         otp_textbox_five.addTextChangedListener(new GenericTextWatcher(otp_textbox_five, edit));
         otp_textbox_six.addTextChangedListener(new GenericTextWatcher(otp_textbox_six, edit));
-
-
-
 
 
         varificationId = getIntent().getStringExtra("VerificationId");
@@ -103,9 +113,18 @@ public class OtpPage extends AppCompatActivity {
                     binding.progressbar.setVisibility(View.INVISIBLE);
                     binding.submitButton.setVisibility(View.VISIBLE);
                     if (task.isSuccessful()) {
+                        String uid = FirebaseAuth.getInstance().getUid();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
+                        String uID = databaseReference.push().getKey();
+                        String name = binding.NameTExt.getText().toString();
+                        String phone = binding.PhoneText.getText().toString();
+                        String email = binding.emailTExt.getText().toString();
+                        userInfo = new User(name, email, phone);
+                        assert uID != null;
+                        System.out.println(uID);
+                        databaseReference.child(uid).setValue(userInfo);
 
                     } else {
                         Toast.makeText(getApplicationContext(), "The OTP entered was invalid", Toast.LENGTH_SHORT).show();
@@ -157,24 +176,6 @@ public class OtpPage extends AppCompatActivity {
                 }));
 
     }
-
-   /* @Override
-    protected void onStart() {
-        super.onStart();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child("phone");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String phone = snapshot.child("phone").getValue().toString();
-                binding.mob.setText(phone);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }*/
 
     @Override
     public void onBackPressed() {

@@ -25,7 +25,7 @@
     <string name="search">What are you Looking for ?</string>
     <string name="previous">Previous</string>
     <string name="profileNmae">Prashant Parmar</string>
-    <string name="location">Kudasan, Gandhinagar, Gujarat, 382064</string>
+    <string name="location">Getting location</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_forgot_password">ForgotPassword</string>
@@ -41,7 +41,7 @@
     <string name="cleaning">Cleaning</string>
     <string name="batteries">Batteries</string>
     <string name="insurance">Insurance</string>
-    <string name="custom">AAA</string>
+    <string name="custom">BreakDown</string>
     <string name="username">Username</string>
     <string name="mobile_number">Mobile Number</string>
     <string name="we_just_need_your_registered_email_address_to">We just need your registered Email Address to</string>
@@ -61,9 +61,9 @@
 
     <string name="continuess">Show Route</string>
     <string name="your_address">Your Address</string>
-    <string name="house_office_no">House/Office No.</string>
+    <string name="house_office_no">Area</string>
     <string name="landmark">LandMark</string>
-    <string name="nearby">NearBy</string>
+    <string name="nearby">Street Name</string>
     <string name="asa">Continue</string>
     <string name="are_you_sure">Are You Sure?</string>
     <string name="enter_the_otp_here">Enter the otp here</string>
@@ -75,5 +75,9 @@
     <string name="_8549301021">8549301021</string>
     <string name="partnerKey">4LISe19e198944831404092f20de2c5a3eeb5</string>
     <string name="my_profile">My Profile</string>
+    <string name="garage_name">Garage Name</string>
+    <string name="address">Address</string>
+    <string name="pincode">PinCode</string>
+    <string name="_8530487927">8530487927</string>
 
 </resources>
