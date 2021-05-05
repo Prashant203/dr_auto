@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -30,8 +31,9 @@
         android:theme="@style/AppTheme"
         android:networkSecurityConfig="@xml/network_security_config"
         android:screenOrientation="portrait"
+        android:allowBackup="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Garages" />
+        <activity android:name=".UserProfile.Garages" />
         <activity android:name=".splash.splash4" />
         <activity android:name=".splash.spalsh3" />
         <activity android:name=".Login.OtpPage" />
@@ -57,7 +59,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Profile"
+            android:name=".UserProfile.Profile"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/profile" />
@@ -88,7 +90,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/dashboard" />
         <activity
-            android:name=".MyAcount"
+            android:name=".UserProfile.MyAcount"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/profile" />
@@ -100,7 +102,7 @@
             android:name=".Login.Login"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:noHistory="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".splash.Splash"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -113,7 +115,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".route"
+            android:name=".Route"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait" />
         <activity

@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/topBar"
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/_180sdp"
+            android:layout_height="@dimen/_150sdp"
             android:background="@drawable/oilhorizontal"
             android:scaleType="fitXY"
             android:src="@drawable/ic_group_652" />
@@ -25,63 +25,86 @@
 
 
         <ImageView
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:src="@drawable/ic_component_9___8" />
+            android:id="@+id/settings"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_15sdp"
+            android:src="@drawable/ic_adjustment__2_" />
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/backButton"
-            android:layout_centerHorizontal="true"
+
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/grName"
                 style="@style/profile_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingLeft="@dimen/_5sdp"
                 android:text="@string/saw_automobiles"
                 android:textSize="@dimen/_20sdp" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:src="@drawable/ic_location_pin" />
+
 
                 <TextView
                     android:id="@+id/Location"
                     style="@style/location_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/location"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_13sdp"
+                    android:layout_height="@dimen/_13sdp"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:src="@drawable/ic_phonecall" />
+
+
+                <TextView
+                    android:id="@+id/contact2"
+                    style="@style/location_text"
                     android:layout_width="@dimen/_210sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:padding="@dimen/_3sdp"
-                    android:paddingStart="@dimen/_2sdp"
-                    android:text="@string/location"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_6sdp"
+                    android:text="+918530487927"
                     android:textSize="@dimen/_13sdp" />
+            </LinearLayout>
 
-                <RatingBar
-                    android:id="@+id/ratings"
-                    style="@android:attr/ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_below="@id/Location"
-                    android:isIndicator="true"
-                    android:max="5"
-                    android:progressBackgroundTint="@color/gray"
-                    android:progressTint="@color/white"
-                    android:rating="3.7"
-                    android:scaleX=".5"
-                    android:scaleY=".5"
-                    android:theme="@style/RatingBar"
-                    android:transformPivotX="0dp"
-                    android:transformPivotY="0dp" />
-
-            </RelativeLayout>
 
         </LinearLayout>
 
@@ -205,42 +228,44 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/details"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/pickup"
+                        style="@style/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:text="Pick &amp; Drop" />
+
+                    <Button
+                        android:id="@+id/drop"
+                        style="@style/button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="Self Drop" />
+
+                </RelativeLayout>
+
             </LinearLayout>
+
+
         </ScrollView>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/details"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/pickup"
-                style="@style/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:text="Pick &amp; Drop" />
-
-            <Button
-                android:id="@+id/drop"
-                style="@style/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:text="Self Drop" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/sureBoxRelative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/details"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:gravity="bottom">
 
             <ImageView

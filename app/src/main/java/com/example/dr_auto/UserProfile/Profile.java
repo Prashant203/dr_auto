@@ -1,18 +1,15 @@
-package com.example.dr_auto;
+package com.example.dr_auto.UserProfile;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityProfileBinding;
-import com.example.dr_auto.db.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,22 +20,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
     ActivityProfileBinding binding;
-
-    private static final String TAG = "dataBase";
-    Integer REQUEST_CAMERA = 1, SELECT_FILE = 0;
-    FirebaseUser user;
-    String uid;
-    User userInfo;
-    String phoneNoFromDB;
-    String nameNoFromDB, emailFromDB;
     FirebaseDatabase firebaseDatabase;
-
     DatabaseReference databaseReference;
 
     @Override
     protected void onStart() {
         super.onStart();
-
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         assert firebaseUser != null;
         String uid = firebaseUser.getUid();
@@ -101,7 +88,7 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    @SuppressLint("IntentReset")
+  /*  @SuppressLint("IntentReset")
     private void selectImage() {
         final CharSequence[] items = {"Gallery", "Cancel"};
 
@@ -123,7 +110,7 @@ public class Profile extends AppCompatActivity {
         builder.show();
 
     }
-
+*/
   /*  @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

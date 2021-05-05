@@ -1,4 +1,4 @@
-package com.example.dr_auto;
+package com.example.dr_auto.UserProfile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.dr_auto.Login.Register_1;
+import com.example.dr_auto.OrderHistory;
+import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityMyAcountBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

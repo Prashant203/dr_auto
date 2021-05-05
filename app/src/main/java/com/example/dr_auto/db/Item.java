@@ -1,32 +1,97 @@
 package com.example.dr_auto.db;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Item {
 
-    private String grName;
-    private String address;
-
+    private int garageId;
+    private String name;
+    private String street;
+    private String area;
+    private String landmark;
+    private int pincode;
+    private long contact;
 
     public Item() {
     }
 
-    public Item(String grName, String address) {
-        this.address = address;
-        this.grName = grName;
+    public Item(int garageId, String name, String street, String area, String landmark, int pincode, long contact) {
+        this.garageId = garageId;
+        this.name = name;
+        this.street = street;
+        this.area = area;
+        this.landmark = landmark;
+        this.pincode = pincode;
+        this.contact = contact;
     }
 
-    public String getAddress() {
-        return address;
+    public int getGarageId() {
+        return garageId;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setGarageId(int garageId) {
+        this.garageId = garageId;
     }
 
-    public String getGrName() {
-        return grName;
+    public String getName() {
+        return name;
     }
 
-    public void setGrName(String grName) {
-        this.grName = grName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getLandmark() {
+        return landmark;
+    }
+
+    public void setLandmark(String landmark) {
+        this.landmark = landmark;
+    }
+
+    public int getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(int pincode) {
+        this.pincode = pincode;
+    }
+
+    public long getContact() {
+        return contact;
+    }
+
+    public void setContact(long contact) {
+        this.contact = contact;
+    }
+
+    @NotNull
+    @Override
+    public String toString() {
+        return "Item{" +
+                "garageId=" + garageId +
+                ", name='" + name + '\'' +
+                ", street='" + street + '\'' +
+                ", area='" + area + '\'' +
+                ", landmark='" + landmark + '\'' +
+                ", pincode=" + pincode +
+                ", contact=" + contact +
+                '}';
     }
 }

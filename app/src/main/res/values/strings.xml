@@ -79,5 +79,6 @@
     <string name="address">Address</string>
     <string name="pincode">PinCode</string>
     <string name="_8530487927">8530487927</string>
+    <string name="no_data_available">no_data_available</string>
 
 </resources>

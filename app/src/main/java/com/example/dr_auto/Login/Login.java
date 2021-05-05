@@ -19,10 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityLoginBinding;
-import com.example.dr_auto.db.User;
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
@@ -37,18 +34,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Login extends AppCompatActivity {
 
-    private static final String TAG = "dataBase";
+
     ActivityLoginBinding binding;
-    FirebaseAuth fAuth;
-    FirebaseUser FirebaseUser;
-
     FirebaseDatabase firebaseDatabase;
-
     DatabaseReference databaseReference;
-
-    User userInfo;
-    String phoneNoFromDB;
-    String nameNoFromDB, emailFromDB;
 
     public static boolean isValidEmail(CharSequence target) {
         if (TextUtils.isEmpty(target)) {
@@ -73,23 +62,27 @@ public class Login extends AppCompatActivity {
 
             if (binding.name.getText().toString().trim().isEmpty()) {
                 binding.name.requestFocus();
+                binding.name.setSelection(binding.name.length());
                 binding.name.setError("This field cannot be empty!!");
                 return;
             }
 
             if (binding.mobilenumber.getText().toString().trim().isEmpty()) {
                 binding.mobilenumber.requestFocus();
+                binding.mobilenumber.setSelection(binding.mobilenumber.length());
                 binding.mobilenumber.setError("Enter Correct Mobile Number!!");
                 return;
             }
             CharSequence temp_emilID = binding.emailText.getText().toString();
             if (!isValidEmail(temp_emilID)) {
                 binding.emailText.requestFocus();
+                binding.emailText.setSelection(binding.emailText.length());
                 binding.emailText.setError("Enter Correct Mail_ID!!");
                 return;
             }
             if (binding.mobilenumber.length() != 10) {
                 binding.mobilenumber.requestFocus();
+                binding.mobilenumber.setSelection(binding.mobilenumber.length());
                 binding.mobilenumber.setError("Enter 10 Digit..!!");
                 return;
             }

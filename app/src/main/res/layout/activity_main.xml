@@ -10,9 +10,8 @@
 
         <ImageView
             android:id="@+id/image"
-
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_130sdp"
             android:background="@drawable/background"
             android:scaleType="fitXY"
             android:src="@drawable/ic_group_652" />
@@ -29,9 +28,9 @@
         <LinearLayout
             android:id="@+id/profileBar"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="@dimen/_125sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <!--<de.hdodenhof.circleimageview.CircleImageView
@@ -48,24 +47,25 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="@dimen/_150sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
+                android:layout_gravity="start"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:textAlignment="textStart"
-
                 android:text="@string/profileName" />
 
             <LinearLayout
-                android:layout_width="@dimen/_180sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_gravity="center|start"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:src="@drawable/ic_location_pin" />
 
@@ -73,11 +73,12 @@
                 <TextView
                     android:id="@+id/Location"
                     style="@style/location_text"
-                    android:layout_width="@dimen/_180sdp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_32sdp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/_3sdp"
-                    android:padding="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_11sdp"
                     android:text="@string/location" />
             </LinearLayout>
         </LinearLayout>
@@ -113,11 +114,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/image"
-            android:layout_marginTop="@dimen/_25sdp">
+            android:layout_marginTop="@dimen/_30sdp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center">

@@ -1,12 +1,16 @@
 package com.example.dr_auto;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
@@ -22,16 +26,69 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class route extends FragmentActivity implements OnMapReadyCallback {
+public class Route extends FragmentActivity implements OnMapReadyCallback {
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
     ActivityRouteBinding binding;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_route);
+
+        binding.grName.setText(getIntent().getStringExtra("name"));
+        binding.Location.setText(getIntent().getStringExtra("address"));
+        // Toast.makeText(this,getIntent().getStringExtra("contact"),Toast.LENGTH_SHORT).show();
+        binding.contact2.setText(getIntent().getStringExtra("contact"));
+        binding.locationText.setText(getIntent().getStringExtra("userAddress"));
+
+        binding.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(Route.this);
+                alert.setTitle("You sure want to exit ?");
+                alert.setPositiveButton("YES", (dialog, which) -> {
+                    Intent intent = new Intent(Route.this, ServiceList.class);
+                    startActivity(intent);
+
+                });
+                alert.setNegativeButton("NO", (dialog, which) -> {
+                });
+
+                AlertDialog alertDialog = alert.create();
+                alertDialog.show();
+            }
+
+        });
+
+        binding.contact2.setOnClickListener(v -> {
+
+            final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Do you want to call this Garage ?");
+            alert.setMessage(binding.contact2.getText().toString() + "\n" + " Or would you like to cancel?");
+
+            alert.setPositiveButton("YES", (dialog, which) -> {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + getIntent().getStringExtra("contact")));
+                startActivity(intent);
+
+            });
+            alert.setNegativeButton("NO", (dialog, which) -> {
+                // do nothing
+            });
+
+            AlertDialog alertDialog = alert.create();
+            alertDialog.show();
+        });
+
+
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLocation();
     }
@@ -51,7 +108,7 @@ public class route extends FragmentActivity implements OnMapReadyCallback {
                     Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + "" + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
                     SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
                     assert supportMapFragment != null;
-                    supportMapFragment.getMapAsync(route.this);
+                    supportMapFragment.getMapAsync(Route.this);
                 }
             }
         });
