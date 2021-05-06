@@ -57,7 +57,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.View
 
 
     // Constructor of the class
-    public ItemArrayAdapter(ArrayList<Item> list, ArrayList<Item> itemList, ServiceProviderListener serviceProviderListener) {
+    public ItemArrayAdapter(ArrayList<Item> itemList, ServiceProviderListener serviceProviderListener) {
         this.itemList = itemList;
         itemListfull = new ArrayList<>(itemList);
         this.serviceProviderListener = serviceProviderListener;

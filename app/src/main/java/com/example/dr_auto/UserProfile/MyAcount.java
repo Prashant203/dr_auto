@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -14,12 +15,20 @@ import com.example.dr_auto.R;
 import com.example.dr_auto.databinding.ActivityMyAcountBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MyAcount extends AppCompatActivity {
 
     ActivityMyAcountBinding binding;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference;
+    String uid = firebaseUser.getUid();
 
 
     @Override
@@ -28,8 +37,22 @@ public class MyAcount extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_my_acount);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
+        databaseReference = firebaseDatabase.getReference("Users");
+        System.out.println(uid);
+        databaseReference.child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String phone = snapshot.child("phone").getValue(String.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         binding.backButton.setOnClickListener(v -> onBackPressed());
@@ -55,7 +78,7 @@ public class MyAcount extends AppCompatActivity {
         });
 
         binding.Logout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
+
 
             final AlertDialog.Builder alert = new AlertDialog.Builder(MyAcount.this);
             alert.setMessage("Are you sure you want to logout?");
@@ -64,6 +87,9 @@ public class MyAcount extends AppCompatActivity {
                 Intent intent = new Intent(MyAcount.this, Register_1.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("uid", uid);
+                System.out.println(uid);
+                FirebaseAuth.getInstance().signOut();
                 startActivity(intent);
             });
             alert.setNegativeButton("NO", (dialog, which) -> {

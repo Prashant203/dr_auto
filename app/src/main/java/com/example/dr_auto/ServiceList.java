@@ -52,9 +52,6 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
     ItemArrayAdapter arrayAdapter;
     ArrayList<Item> itemList;
     private ActivityServiceListBinding binding;
-    ArrayList<Item> itemListfull;
-    String pin;
-    String getSubAdminArea;
 
     {
         assert firebaseUser != null;
@@ -181,7 +178,7 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
                         if (itemList.size() > 0) {
                             binding.progressbar.setVisibility(View.GONE);
 
-                            arrayAdapter = new ItemArrayAdapter(itemList, itemListfull, ServiceList.this);
+                            arrayAdapter = new ItemArrayAdapter(itemList, ServiceList.this);
                             recyclerView.setLayoutManager(new LinearLayoutManager(ServiceList.this));
                             recyclerView.setAdapter(arrayAdapter);
                             arrayAdapter.notifyDataSetChanged();

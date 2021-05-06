@@ -37,6 +37,7 @@
         <activity android:name=".splash.splash4" />
         <activity android:name=".splash.spalsh3" />
         <activity android:name=".Login.OtpPage" />
+        <activity android:name=".Login.OTP2" />
         <activity
             android:name=".splash.splash2"
             android:configChanges="keyboardHidden|orientation|screenSize"

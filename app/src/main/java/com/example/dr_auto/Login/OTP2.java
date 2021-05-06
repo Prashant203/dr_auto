@@ -28,7 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.concurrent.TimeUnit;
 
 
-public class OtpPage extends AppCompatActivity {
+public class OTP2 extends AppCompatActivity {
     ActivityOtpPageBinding binding;
     DatabaseReference databaseReference;
     FirebaseDatabase fireBaseDatabase;
@@ -118,15 +118,6 @@ public class OtpPage extends AppCompatActivity {
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
 
-
-                        String name = binding.NameTExt.getText().toString();
-                        String phone = binding.PhoneText.getText().toString();
-                        String email = binding.emailTExt.getText().toString();
-                        userInfo = new User(name, email, phone);
-
-
-                        databaseReference.child(uid).setValue(userInfo);
-
                     } else {
                         Toast.makeText(getApplicationContext(), "The OTP entered was invalid", Toast.LENGTH_SHORT).show();
                     }
@@ -136,11 +127,11 @@ public class OtpPage extends AppCompatActivity {
 
         });
 
-        binding.wrong.setOnClickListener(v -> startActivity(new Intent(OtpPage.this, Login.class)));
+        binding.wrong.setOnClickListener(v -> startActivity(new Intent(OTP2.this, Login.class)));
 
 
         binding.resendButton.setOnClickListener(v -> PhoneAuthProvider.getInstance().verifyPhoneNumber("+91" + getIntent().getStringExtra("Mobile"), 30L, TimeUnit.SECONDS,
-                OtpPage.this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                OTP2.this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
