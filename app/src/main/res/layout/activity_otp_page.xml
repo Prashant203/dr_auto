@@ -5,24 +5,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".OtpPage">
+        tools:context=".Login.OtpPage">
 
         <LinearLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_50sdp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            tools:context=".OtpPage">
-
-            <ImageView
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_margin="@dimen/_10sdp"
-                android:src="@drawable/ic_left_arrow_1" />
+            tools:context=".Login.OtpPage">
 
 
             <TextView
@@ -240,5 +232,33 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:src="@drawable/ic_otp" />
+
+        <TextView
+            android:id="@+id/NameTExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/emailTExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/PhoneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/uID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="invisible" />
     </RelativeLayout>
 </layout>

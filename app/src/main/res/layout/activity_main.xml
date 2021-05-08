@@ -9,31 +9,31 @@
         tools:context=".MainActivity">
 
         <ImageView
-
+            android:id="@+id/image"
             android:layout_width="fill_parent"
-            android:layout_height="@dimen/_150sdp"
+            android:layout_height="@dimen/_130sdp"
             android:background="@drawable/background"
             android:scaleType="fitXY"
             android:src="@drawable/ic_group_652" />
 
 
         <ImageView
-            android:id="@+id/addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:layout_marginRight="@dimen/_6sdp"
-            android:src="@drawable/ic_component_9___8" />
+            android:id="@+id/settings"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/ic_adjustment__2_" />
 
         <LinearLayout
             android:id="@+id/profileBar"
             android:layout_width="match_parent"
-            android:gravity="center"
             android:layout_height="@dimen/_125sdp"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <!--<de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
                 android:layout_width="@dimen/_70sdp"
@@ -42,83 +42,83 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:src="@drawable/l"
                 app:civ_border_width="2dp"
-                app:civ_border_color="@color/white"/>
+                app:civ_border_color="@color/white"/>-->
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:layout_gravity="start"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textAlignment="textStart"
+                android:text="@string/profileName" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_12sdp"
-                android:orientation="vertical">
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|start"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:src="@drawable/ic_location_pin" />
+
 
                 <TextView
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/Location"
+                    style="@style/location_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_32sdp"
                     android:layout_gravity="center"
-                    android:textAllCaps="true"
-                    android:textSize="@dimen/_15sdp"
-                    android:textColor="@color/white"
-                    android:text="@string/profileName"/>
-
-                <LinearLayout
-                    android:layout_width="@dimen/_150sdp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_7sdp"
-                        android:src="@drawable/ic_location_pin" />
-
-
-                    <TextView
-                        style="@style/location_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/_2sdp"
-                        android:padding="@dimen/_3sdp"
-                        android:text="@string/location" />
-                </LinearLayout>
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_11sdp"
+                    android:text="@string/location" />
             </LinearLayout>
-
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/serachbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/profileBar"
-            android:orientation="vertical">
 
-            <EditText
-                android:layout_width="@dimen/_260sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_searchbar"
-                android:drawableStart="@drawable/ic_search"
-                android:drawableEnd="@drawable/ic_microphone"
-                android:drawablePadding="@dimen/_10sdp"
-                android:fontFamily="@font/segoe"
-                android:hint="@string/search"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_4sdp"
-                android:textColor="@color/grayy"
-                android:textSize="@dimen/_11sdp"
-                android:lines="1" />
+        <!-- <LinearLayout
+             android:id="@+id/serachbar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/profileBar"
+             android:orientation="vertical">
 
-        </LinearLayout>
+             <EditText
+                 android:layout_width="@dimen/_260sdp"
+                 android:layout_height="@dimen/_30sdp"
+                 android:layout_gravity="center"
+                 android:background="@drawable/ic_searchbar"
+                 android:drawableStart="@drawable/ic_search"
+                 android:drawableEnd="@drawable/ic_microphone"
+                 android:drawablePadding="@dimen/_10sdp"
+                 android:fontFamily="@font/segoe"
+                 android:hint="@string/search"
+                 android:paddingLeft="@dimen/_20sdp"
+                 android:paddingRight="@dimen/_20sdp"
+                 android:paddingBottom="@dimen/_4sdp"
+                 android:textColor="@color/grayy"
+                 android:textSize="@dimen/_11sdp"
+                 android:lines="1" />
 
+         </LinearLayout>
+ -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/serachbar"
-            android:layout_marginTop="@dimen/_25sdp">
+            android:layout_below="@id/image"
+            android:layout_marginTop="@dimen/_30sdp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_300sdp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center">
@@ -131,7 +131,7 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view"
+                        android:id="@+id/ServiceView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -148,7 +148,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view2"
+                        android:id="@+id/tyresView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -165,7 +165,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view3"
+                        android:id="@+id/acView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -188,7 +188,7 @@
                     android:layout_gravity="center_horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view4"
+                        android:id="@+id/cleaningView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -205,7 +205,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view5"
+                        android:id="@+id/dentView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -222,7 +222,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view6"
+                        android:id="@+id/betteriesView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -245,7 +245,7 @@
                     android:layout_gravity="center_horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view7"
+                        android:id="@+id/insuranceVIew"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -262,24 +262,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view8"
-                        style="@style/ServiceButton"
-                        android:layout_margin="@dimen/_5sdp">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:paddingTop="@dimen/_18sdp"
-                            android:text="@string/custom"
-                            android:textColor="#525159"
-                            android:textSize="@dimen/_11sdp"
-                            card_view:drawableTopCompat="@drawable/ic_customer_support" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view9"
+                        android:id="@+id/lightsView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -292,6 +275,22 @@
                             android:textColor="#525159"
                             android:textSize="@dimen/_11sdp"
                             card_view:drawableTopCompat="@drawable/ic_headlight" />
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/breakdownView"
+                        style="@style/ServiceButton"
+                        android:layout_margin="@dimen/_5sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/_10sdp"
+                            android:text="@string/custom"
+                            android:textColor="#525159"
+                            android:textSize="@dimen/_11sdp"
+                            card_view:drawableTopCompat="@drawable/ic_tow_truck" />
 
                     </androidx.cardview.widget.CardView>
 

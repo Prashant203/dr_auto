@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".UserProfile.Profile">
+
+        <RelativeLayout
+            android:id="@+id/grad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/bg"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_profilegrad1" />
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:src="@drawable/ic_backbuttonwhite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/_12sdp"
+                android:fontFamily="@font/segoebold"
+                android:gravity="center"
+                android:text="Add Garage"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_19sdp" />
+
+
+            <!-- <LinearLayout
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/backButton"
+                 android:layout_centerHorizontal="true">
+
+                 <FrameLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
+
+                     <de.hdodenhof.circleimageview.CircleImageView
+                         xmlns:app="http://schemas.android.com/apk/res-auto"
+                         android:id="@+id/profile_image"
+                         android:layout_width="@dimen/_110sdp"
+                         android:layout_height="@dimen/_110sdp"
+                         android:src="@drawable/l"
+                         app:civ_border_width="2dp"
+                         app:civ_border_color="@color/white"/>
+
+                     <ImageView
+                         android:id="@+id/edit"
+                         android:layout_width="@dimen/_30sdp"
+                         android:layout_height="@dimen/_30sdp"
+                         android:layout_gravity="end|bottom"
+                         android:src="@drawable/ic_edit"
+                         />
+                 </FrameLayout>
+             </LinearLayout>-->
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/grad">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nameText"
+                        style="@style/location_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:alpha="0.7"
+                        android:padding="@dimen/_3sdp"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/garage_name"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        style="@style/location_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:alpha="0.7"
+                        android:padding="@dimen/_3sdp"
+                        android:text="@string/address"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <EditText
+                        android:id="@+id/area"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/house_office_no"
+                        android:maxLines="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <EditText
+                        android:id="@+id/street"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/nearby"
+                        android:maxLines="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <EditText
+                        android:id="@+id/landmark"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/landmark"
+                        android:maxLines="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <EditText
+                        android:id="@+id/pin"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/pincode"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:maxLines="1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="TextFields" />
+
+
+                    <TextView
+                        android:id="@+id/contactText"
+                        style="@style/location_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:alpha="0.7"
+                        android:padding="@dimen/_3sdp"
+                        android:text="Contact Number"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <EditText
+                        android:id="@+id/contact"
+                        android:layout_width="@dimen/_260sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/segoe"
+                        android:hint="@string/_8530487927"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <!--<TextView
+                        android:id="@+id/Gender"
+                        style="@style/location_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mobileNo"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:alpha="0.7"
+                        android:padding="@dimen/_3sdp"
+                        android:text="Gender"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+-->
+                    <!--  <RadioGroup
+                          android:id="@+id/radioGroup1"
+                          android:layout_width="wrap_content"
+                          android:layout_height="@dimen/_30sdp"
+                          android:layout_below="@+id/Gender"
+                          android:layout_marginLeft="@dimen/_20sdp"
+                          android:layout_marginTop="@dimen/_10sdp"
+                          android:orientation="horizontal">
+
+                          <RadioButton
+                              android:id="@+id/radioButton1"
+                              style="@style/chekbox"
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:checked="true"
+                              android:text="Male" />
+
+
+                          <RadioButton
+                              style="@style/chekbox"
+                              android:layout_width="wrap_content"
+                              android:layout_height="match_parent"
+                              android:layout_below="@+id/radioGroup1"
+                              android:layout_alignLeft="@+id/radioGroup1"
+                              android:text="Female" />
+
+
+                      </RadioGroup>
+  -->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:gravity="center_horizontal">
+
+                        <Button
+                            android:id="@+id/saveButton"
+                            android:layout_width="@dimen/_150sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/ic_group_704"
+                            android:fontFamily="@font/segoe"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="@dimen/_32sdp"
+                            android:text="Save"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_17sdp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

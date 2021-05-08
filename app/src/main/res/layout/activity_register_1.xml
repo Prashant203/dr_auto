@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Register_1">
+        tools:context=".Login.Register_1">
 
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
 
@@ -25,49 +26,54 @@
                     android:layout_width="@dimen/_140sdp"
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:src="@drawable/logo" />
+                    android:layout_margin="@dimen/_40sdp"
+                    android:src="@drawable/ic_loginsvg" />
 
-                <EditText
-                    android:id="@+id/name"
-                    android:layout_width="@dimen/_260sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:background="@drawable/ic_rectangle_textbox"
-                    android:drawableStart="@drawable/ic_name"
-                    android:drawablePadding="@dimen/_11sdp"
-                    android:hint="@string/your_name"
-                    android:inputType="textPersonName"
-                    android:paddingStart="@dimen/_17sdp"
-                    android:paddingBottom="@dimen/_4sdp" />
-
-
-                <EditText
-                    android:id="@+id/emailText"
-                    android:layout_width="@dimen/_260sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@drawable/ic_rectangle_textbox"
-                    android:drawableLeft="@drawable/ic_email"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:hint="@string/e_mail"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="@dimen/_15sdp"
-                    android:paddingBottom="@dimen/_4sdp" />
-
-                <Button
-                    android:id="@+id/submitButton"
+                <TextView
+                    android:id="@+id/sticker1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/login_as"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/phoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="@string/_8530487927"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_15sdp" />
+
+                <Button
+                    android:id="@+id/buttonVerifyPhone"
+                    android:layout_width="@dimen/_210sdp"
+                    android:layout_height="@dimen/_70sdp"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/_30sdp"
                     android:background="@drawable/ic_group_704"
                     android:fontFamily="@font/segoe"
-                    android:paddingTop="@dimen/_25sdp"
-                    android:text="@string/RehisterB"
+                    android:paddingStart="@dimen/_7sdp"
+                    android:paddingTop="@dimen/_28sdp"
+                    android:text="@string/proceed_to_login"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_15sdp" />
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:textSize="@dimen/_11sdp" />
+
+
+                <TextView
+                    android:id="@+id/CreateNew"
+                    style="@style/normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_50sdp"
+                    android:alpha="0.8"
+                    android:text="Use a different Number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/red"
+                    android:textStyle="bold" />
+
 
             </LinearLayout>
         </ScrollView>
