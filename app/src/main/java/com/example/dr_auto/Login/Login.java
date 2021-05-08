@@ -38,6 +38,8 @@ public class Login extends AppCompatActivity {
     ActivityLoginBinding binding;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    private static final int TIME_DELAY = 2000;
+    private static long back_pressed;
 
     public static boolean isValidEmail(CharSequence target) {
         if (TextUtils.isEmpty(target)) {
@@ -249,6 +251,12 @@ public class Login extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(getBaseContext(), "Press once again to exit!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        back_pressed = System.currentTimeMillis();
     }
 }

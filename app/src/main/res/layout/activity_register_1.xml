@@ -27,7 +27,7 @@
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="@dimen/_40sdp"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/ic_loginsvg" />
 
                 <TextView
                     android:id="@+id/sticker1"
@@ -58,7 +58,8 @@
                     android:text="@string/proceed_to_login"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp" />
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:textSize="@dimen/_11sdp" />
 
 
                 <TextView

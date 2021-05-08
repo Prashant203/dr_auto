@@ -28,6 +28,9 @@ public class Register_1 extends AppCompatActivity {
     ActivityRegister1Binding binding;
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference;
+    private static final int TIME_DELAY = 2000;
+    private static long back_pressed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,4 +96,14 @@ public class Register_1 extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(getBaseContext(), "Press once again to exit!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        back_pressed = System.currentTimeMillis();
+    }
 }

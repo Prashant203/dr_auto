@@ -131,7 +131,7 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view"
+                        android:id="@+id/ServiceView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -148,7 +148,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view2"
+                        android:id="@+id/tyresView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -165,7 +165,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view3"
+                        android:id="@+id/acView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -188,7 +188,7 @@
                     android:layout_gravity="center_horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view4"
+                        android:id="@+id/cleaningView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -205,7 +205,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view5"
+                        android:id="@+id/dentView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -222,7 +222,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view6"
+                        android:id="@+id/betteriesView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -245,7 +245,7 @@
                     android:layout_gravity="center_horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view7"
+                        android:id="@+id/insuranceVIew"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -262,7 +262,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view8"
+                        android:id="@+id/lightsView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 
@@ -278,7 +278,7 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/card_view9"
+                        android:id="@+id/breakdownView"
                         style="@style/ServiceButton"
                         android:layout_margin="@dimen/_5sdp">
 

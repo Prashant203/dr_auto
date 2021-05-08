@@ -1,13 +1,13 @@
-package com.example.dr_auto;
+package com.example.dr_auto.services;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dr_auto.Adapter.ItemArrayAdapter;
+import com.example.dr_auto.R;
 import com.example.dr_auto.UserProfile.MyAcount;
 import com.example.dr_auto.databinding.ActivityServiceListBinding;
 import com.example.dr_auto.db.Item;
 import com.example.dr_auto.db.Pin;
+import com.example.dr_auto.service_details;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,7 +41,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.ServiceProviderListener {
 
@@ -52,6 +57,9 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
     ItemArrayAdapter arrayAdapter;
     ArrayList<Item> itemList;
     private ActivityServiceListBinding binding;
+    Location currentLocation, destination;
+    private double longitude;
+    private double latitude;
 
     {
         assert firebaseUser != null;
@@ -61,6 +69,11 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
     @Override
     protected void onStart() {
         super.onStart();
+
+        String url = "http://192.168.42.208:9192/api/service-providers/get-service-providers/";
+
+
+        getServiceProviders(url);
 
         System.out.println(uid);
         databaseReference.child(uid).addValueEventListener(new ValueEventListener() {
@@ -82,6 +95,13 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
         });
 
         binding.Location.setText(getIntent().getStringExtra("Address"));
+        goToLocationFromAddress(binding.Location.getText().toString());
+        System.out.println("Home" + latitude + "-----------" + longitude);
+        double currentLat = latitude;
+        double currentLong = longitude;
+        currentLocation = new Location("locationA");
+        currentLocation.setLatitude(currentLat);
+        currentLocation.setLongitude(currentLong);
 
     }
 
@@ -117,6 +137,7 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
         itemList.add(new Item("SAW Automobiles", "Medra Village Rd, Valad, Gujarat 382355"));
         itemList.add(new Item("SAW Automobiles", "Medra Village Rd, Valad, Gujarat 382355"));*/
 
+
         DatabaseReference ndatabaseReference = firebaseDatabase.getReference("Users");
         ndatabaseReference.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
@@ -124,10 +145,10 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
                 String pin = (snapshot.child("pin").getValue()).toString();
                 String getSubAdminArea = (snapshot.child("city").getValue()).toString();
 
-                String url = "http://192.168.42.208:9192/api/service-providers/get-service-provider/" + getSubAdminArea + "/" + pin;
+                //     String url = "http://192.168.42.208:9192/api/service-providers/get-service-provider/" + getSubAdminArea + "/" + pin;
 
 
-                getServiceProviders(url);
+
             }
 
             @Override
@@ -140,12 +161,12 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
     }
 
     public void getServiceProviders(String url) {
-        //String url = "http://192.168.42.208:9192/api/service-providers/get-service-provider/"+city+"/"+pin;
 
         itemList.clear();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
+                    @SuppressLint("DefaultLocale")
                     @Override
                     public void onResponse(JSONObject response) {
                         //textView.setText("Response: " + response.toString());
@@ -170,13 +191,26 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
                                 int pincode = responseObj.getInt("pincode");
                                 long contact = responseObj.getLong("contact");
                                 int garageId = responseObj.getInt("garageId");
-                                itemList.add(new Item(garageId, name, street, area, landmark, pincode, contact));
+
+
+                                goToLocationFromAddress(name + "," + street + "," + landmark + "," + area + "," + pincode);
+                                double newLat = latitude;
+                                double newLong = longitude;
+                                destination = new Location("locationB");
+                                destination.setLatitude(newLat);
+                                destination.setLongitude(newLong);
+                                double distance = currentLocation.distanceTo(destination);
+
+                                //      System.out.println("distance--" + i + "-----" + String.format("%.2f", distance / 1000) + "km");
+                                String dist = String.format("%.2f", distance / 1000);
+                                itemList.add(new Item(garageId, name, street, area, landmark, pincode, contact, dist));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
                         if (itemList.size() > 0) {
                             binding.progressbar.setVisibility(View.GONE);
+                            itemList.sort((o1, o2) -> o1.getFormat().compareTo(o2.getFormat()));
 
                             arrayAdapter = new ItemArrayAdapter(itemList, ServiceList.this);
                             recyclerView.setLayoutManager(new LinearLayoutManager(ServiceList.this));
@@ -193,45 +227,62 @@ public class ServiceList extends AppCompatActivity implements ItemArrayAdapter.S
         Volley.newRequestQueue(this).add(jsonObjectRequest);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.example_menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                arrayAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
-
-        return true;
-
-    }
 
     @Override
     public void onProviderClick(int postion) {
         System.out.println(itemList.get(postion));
-        String name = itemList.get(postion).getName();
+
+
         Intent intent = new Intent(getApplicationContext(), service_details.class);
+        intent.putExtra("zip", itemList.get(postion).getPincode());
         intent.putExtra("name", itemList.get(postion).getName());
         intent.putExtra("address", itemList.get(postion).getStreet() + ", " + itemList.get(postion).getArea() + ", " + itemList.get(postion).getLandmark() + ", " +
                 itemList.get(postion).getPincode());
-        intent.putExtra("contact", "+91" + itemList.get(postion).getContact());
+
+        intent.putExtra("contact", "+91 " + itemList.get(postion).getContact());
 
         startActivity(intent);
 
 
     }
+
+    public void goToLocationFromAddress(String strAddress) {
+        //Create coder with Activity context - this
+        Geocoder coder = new Geocoder(this);
+        List<Address> address;
+
+        try {
+            //Get latLng from String
+            address = coder.getFromLocationName(strAddress, 5);
+
+            //check for null
+            if (address != null) {
+
+                //Lets take first possibility from the all possibilities.
+                try {
+                    Address location = address.get(0);
+                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                    longitude = latLng.longitude;
+                    latitude = latLng.latitude;
+
+
+                   /* ndatabaseReference.child(Uid).child("grSelectedAddressLong").setValue(longitude);
+                    ndatabaseReference.child(Uid).child("grSelectedAddressLatt").setValue(latitude);
+*/
+
+                } catch (IndexOutOfBoundsException er) {
+                    Toast.makeText(this, "Location isn't available", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
 

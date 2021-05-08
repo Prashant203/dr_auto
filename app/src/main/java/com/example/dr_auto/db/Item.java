@@ -11,11 +11,12 @@ public class Item {
     private String landmark;
     private int pincode;
     private long contact;
+    private String format;
 
     public Item() {
     }
 
-    public Item(int garageId, String name, String street, String area, String landmark, int pincode, long contact) {
+    public Item(int garageId, String name, String street, String area, String landmark, int pincode, long contact, String format) {
         this.garageId = garageId;
         this.name = name;
         this.street = street;
@@ -23,6 +24,7 @@ public class Item {
         this.landmark = landmark;
         this.pincode = pincode;
         this.contact = contact;
+        this.format = format;
     }
 
     public int getGarageId() {
@@ -81,6 +83,14 @@ public class Item {
         this.contact = contact;
     }
 
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
     @NotNull
     @Override
     public String toString() {
@@ -92,6 +102,7 @@ public class Item {
                 ", landmark='" + landmark + '\'' +
                 ", pincode=" + pincode +
                 ", contact=" + contact +
+                ", distance=" + format +
                 '}';
     }
 }

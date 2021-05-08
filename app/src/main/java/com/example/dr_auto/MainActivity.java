@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,8 @@ import com.example.dr_auto.Adapter.ViewPagerAdapter;
 import com.example.dr_auto.UserProfile.MyAcount;
 import com.example.dr_auto.databinding.ActivityMainBinding;
 import com.example.dr_auto.db.UserAddress;
+import com.example.dr_auto.services.BreakDownList;
+import com.example.dr_auto.services.ServiceList;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -48,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView[] dots;
     ActivityMainBinding binding;
     FirebaseAuth firebaseAuth;
-
+    private static final int TIME_DELAY = 2000;
+    private static long back_pressed;
     private static final int REQUEST_CODE = 101;
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -165,10 +169,100 @@ public class MainActivity extends AppCompatActivity {
 
         binding.settings.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MyAcount.class)));
         // binding.addButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CarInventory.class)));
-        binding.cardView.setOnClickListener(new View.OnClickListener() {
+        binding.ServiceView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.tyresView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.acView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+
+        binding.cleaningView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+
+        binding.dentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.betteriesView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.insuranceVIew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.lightsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), ServiceList.class);
+                intent.putExtra("Address", binding.Location.getText().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+        binding.breakdownView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), BreakDownList.class);
                 intent.putExtra("Address", binding.Location.getText().toString());
 
 
@@ -311,6 +405,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + TIME_DELAY > System.currentTimeMillis()) {
+            super.onBackPressed();
+        } else {
+            Toast.makeText(getBaseContext(), "Press once again to exit!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        back_pressed = System.currentTimeMillis();
+    }
+
    /* private void fetchLocation() {
         if (ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
@@ -371,43 +476,5 @@ public class MainActivity extends AppCompatActivity {
 
 */
     // must declare methods //
-
-  /*  public void onStart(){
-        mGoogleApiClient.connect();
-        super.onStart();
-        if(mGoogleApiClient.isConnected()){
-            fetchLocation();
-        }
-    }
-    public void onStop(){
-        mGoogleApiClient.disconnect();
-        stopLocationUpdate();
-        super.onStop();
-    }
-    public void onPause(){
-        mGoogleApiClient.disconnect();
-        stopLocationUpdate();
-        super.onPause();
-
-    }
-    public void onResume(){
-        mGoogleApiClient.connect();
-        super.onResume();
-        if(mGoogleApiClient.isConnected()){
-            fetchLocation();
-        }
-    }
-
-    protected  void stopLocationUpdate(){
-        LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, (LocationListener) this);
-    }
-*/
-  // Must Declare LocatonListener Methods
-  public void onLocationChanged(Location location) {
-      if (location != null) {
-          double lat = location.getLatitude();
-          double lng = location.getLongitude();
-      }
-  }
 
 }

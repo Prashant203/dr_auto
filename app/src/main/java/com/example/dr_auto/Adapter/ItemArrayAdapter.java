@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,47 +17,16 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.ViewHolder> implements Filterable {
+public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.ViewHolder> {
 
     private final ArrayList<Item> itemList;
-    private final ArrayList<Item> itemListfull;
-    private final Filter itemFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Item> filterList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0) {
-                filterList.addAll(itemListfull);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (Item item : itemListfull) {
-                    if (item.getName().toLowerCase().contains(filterPattern)) {
-                        filterList.add(item);
-                    }
-
-                }
-            }
-            FilterResults filterResults = new FilterResults();
-            filterResults.values = filterList;
-            return filterResults;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            itemList.clear();
-            itemList.addAll((ArrayList) results.values);
-            notifyDataSetChanged();
-
-        }
-    };
     public ServiceProviderListener serviceProviderListener;
 
 
     // Constructor of the class
     public ItemArrayAdapter(ArrayList<Item> itemList, ServiceProviderListener serviceProviderListener) {
         this.itemList = itemList;
-        itemListfull = new ArrayList<>(itemList);
         this.serviceProviderListener = serviceProviderListener;
     }
 
@@ -72,10 +39,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.View
 
     }
 
-    @Override
-    public int getItemCount() {
-        return itemList.size();
-    }
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -85,6 +49,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.View
 
         holder.address.setText(itemList.get(position).getStreet() + ", " + itemList.get(position).getArea() + ", " + itemList.get(position).getLandmark() + ", " + itemList.get(position).getPincode());
         holder.contact.setText(String.valueOf(itemList.get(position).getContact()));
+        holder.distance.setText(itemList.get(position).getFormat() + " km");
 
 
         // holder.contact.setText((int) itemList.get(position).getContact());
@@ -97,17 +62,21 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.View
         });*/
     }
 
+
     @Override
-    public Filter getFilter() {
-        return itemFilter;
+    public int getItemCount() {
+        int limit = 50;
+        return Math.min(itemList.size(), limit);
+
     }
+
 
     public interface ServiceProviderListener {
         void onProviderClick(int position);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView grName, street, area, landmark, pincode, contact, address;
+        public TextView grName, street, area, landmark, pincode, contact, address, distance;
         Button addB;
         ServiceProviderListener providerListener;
 
@@ -121,6 +90,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<ItemArrayAdapter.View
             pincode = itemView.findViewById(R.id.pincode);
             address = itemView.findViewById(R.id.address);
             contact = itemView.findViewById(R.id.contact1);
+            distance = itemView.findViewById(R.id.type);
             this.providerListener = providerListener;
 
             //  addB = itemView.findViewById(R.id.addB);

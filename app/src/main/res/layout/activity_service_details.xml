@@ -228,32 +228,6 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/details"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/pickup"
-                        style="@style/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:text="Pick &amp; Drop" />
-
-                    <Button
-                        android:id="@+id/drop"
-                        style="@style/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                        android:text="Self Drop" />
-
-                </RelativeLayout>
 
             </LinearLayout>
 
@@ -261,16 +235,43 @@
         </ScrollView>
 
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/pickup"
+                style="@style/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:text="@string/pick_amp_drop" />
+
+            <Button
+                android:id="@+id/drop"
+                style="@style/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Self Drop" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/sureBoxRelative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/details"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:gravity="bottom">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:src="@drawable/ic_path_530" />
 
             <TextView

@@ -54,7 +54,7 @@ public class service_details extends AppCompatActivity {
         String grAddress = binding.Location.getText().toString();
         String grname = binding.grName.getText().toString();
 
-        goToLocationFromAddress(grname + "," + grAddress);
+      //  goToLocationFromAddress(grname + "," + grAddress);
 
 
         binding.contact2.setOnClickListener(v -> {

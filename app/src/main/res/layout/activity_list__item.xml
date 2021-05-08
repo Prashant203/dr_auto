@@ -99,6 +99,7 @@
             android:gravity="bottom"
             android:paddingStart="@dimen/_2sdp"
             android:text="@string/car_service"
+            android:textColor="@color/red"
             android:paddingTop="@dimen/_7sdp"
             android:textSize="@dimen/_10sdp" />
         <!--  <TextView
